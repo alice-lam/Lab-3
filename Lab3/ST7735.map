@@ -144,6 +144,7 @@ Section Cross References
     fixed.o(i.ST7735_XYplotInit) refers to fixed.o(.data) for Yrnge
     fixed.o(i.ST7735_sDecOut3) refers to st7735.o(i.ST7735_OutString) for ST7735_OutString
     fixed.o(i.ST7735_uBinOut8) refers to st7735.o(i.ST7735_OutString) for ST7735_OutString
+    graphics.o(i.ST7735_Line) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -463,6 +464,8 @@ Removing Unused input sections from the image.
     Removing switch.o(i.Switch_Init), (116 bytes).
     Removing switch.o(.data), (12 bytes).
     Removing speaker.o(i.SpeakerEnable), (36 bytes).
+    Removing graphics.o(i.ST7735_DrawCircle), (2 bytes).
+    Removing graphics.o(i.ST7735_Line), (64 bytes).
     Removing f2d.o(.text), (38 bytes).
     Removing dadd.o(.text), (334 bytes).
     Removing dmul.o(.text), (228 bytes).
@@ -471,7 +474,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (40 bytes).
     Removing depilogue.o(.text), (190 bytes).
 
-57 unused section(s) (total 5018 bytes) removed from the image.
+59 unused section(s) (total 5084 bytes) removed from the image.
 
 ==============================================================================
 
@@ -482,27 +485,28 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      644  startup.o(RESET)
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
@@ -510,7 +514,6 @@ Image Symbol Table
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
@@ -520,6 +523,7 @@ Image Symbol Table
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    Graphics.c                               0x00000000   Number         0  graphics.o ABSOLUTE
     PLL.c                                    0x00000000   Number         0  pll.o ABSOLUTE
     ST7735.c                                 0x00000000   Number         0  st7735.o ABSOLUTE
     ST7735TestMain.c                         0x00000000   Number         0  st7735testmain.o ABSOLUTE
@@ -824,16 +828,16 @@ Memory Map of the image
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
-    0x00000284   0x00000000   Code   RO          461  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000284   0x00000004   Code   RO          727    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000288   0x00000004   Code   RO          730    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0000028c   0x00000000   Code   RO          732    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0000028c   0x00000000   Code   RO          734    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0000028c   0x00000008   Code   RO          735    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000294   0x00000000   Code   RO          737    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000294   0x00000000   Code   RO          739    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000294   0x00000004   Code   RO          728    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x00000298   0x00000024   Code   RO          757    .text               mc_w.l(init.o)
+    0x00000284   0x00000000   Code   RO          479  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000284   0x00000004   Code   RO          745    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000288   0x00000004   Code   RO          748    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000028c   0x00000000   Code   RO          750    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000028c   0x00000000   Code   RO          752    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000028c   0x00000008   Code   RO          753    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000294   0x00000000   Code   RO          755    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000294   0x00000000   Code   RO          757    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000294   0x00000004   Code   RO          746    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x00000298   0x00000024   Code   RO          775    .text               mc_w.l(init.o)
     0x000002bc   0x00000020   Code   RO           34    i.Delay1ms          st7735.o
     0x000002dc   0x00000020   Code   RO          311    i.DelayWait10ms     st7735testmain.o
     0x000002fc   0x0000007c   Code   RO           12    i.PLL_Init          pll.o
@@ -846,9 +850,9 @@ Memory Map of the image
     0x000007a4   0x00000024   Code   RO           49    i.ST7735_FillScreen  st7735.o
     0x000007c8   0x0000007c   Code   RO           51    i.ST7735_InitR      st7735.o
     0x00000844   0x00000020   Code   RO           64    i.ST7735_SetCursor  st7735.o
-    0x00000864   0x0000000e   Code   RO          769    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00000872   0x00000002   Code   RO          770    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00000874   0x0000000e   Code   RO          771    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00000864   0x0000000e   Code   RO          787    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00000872   0x00000002   Code   RO          788    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00000874   0x0000000e   Code   RO          789    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x00000882   0x00000056   Code   RO           68    i.commandList       st7735.o
     0x000008d8   0x00000184   Code   RO           69    i.commonInit        st7735.o
     0x00000a5c   0x00000894   Code   RO          314    i.main              st7735testmain.o
@@ -860,7 +864,7 @@ Memory Map of the image
     0x000013c8   0x000007e2   Data   RO           79    .constdata          st7735.o
     0x00001baa   0x00003244   Data   RO          322    .constdata          st7735testmain.o
     0x00004dee   0x00000002   PAD
-    0x00004df0   0x00000020   Data   RO          767    Region$$Table       anon$$obj.o
+    0x00004df0   0x00000020   Data   RO          785    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x0000002c, Max: 0xffffffff, ABSOLUTE)

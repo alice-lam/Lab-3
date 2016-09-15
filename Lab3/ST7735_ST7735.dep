@@ -29,3 +29,8 @@ F (.\Speaker.c)(0x57D9F695)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --ap
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x57D9F558)
 I (..\../inc/tm4c123gh6pm.h)(0x57C1C595)
 I (Boolean.h)(0x57D9F6C1)
+F (.\Graphics.c)(0x57DA012E)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\graphics.o --omf_browse .\graphics.crf --depend .\graphics.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x57D9F558)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
+I (ST7735.h)(0x57CF1512)
+I (fixed.h)(0x57CF1512)
